@@ -1,0 +1,70 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="mb-4">
+  <img src="../media/user.jpg" height="140" width="140">
+</div>
+
+
+<form action="" class="width: 400px" method="POST">
+{% csrf_token %}
+  <div class="d-flex align-items-start flex-row w-100">
+    <div class="p-2 pt-3 w-25">
+      <label for="username1">Username</label>
+    </div>
+    <div class="p-2 w-75">
+      <div class="form-group">
+        <input type="text" class="form-control" id="username1" name="username" placeholder="Username" value="{{user_form.username.value}}">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-start flex-row w-100">
+    <div class="p-2 pt-3 w-25">
+      <label for="email">Email</label>
+    </div>
+    <div class="p-2 w-75">
+      <div class="form-group">
+        <input type="email" class="form-control" id="email"  name="email" placeholder="Email" value="{{user_form.email.value}}">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-start flex-row w-100">
+    <div class="p-2 pt-3 w-25">
+      <label for="location">Location</label>
+    </div>
+    <div class="p-2 w-75">
+      <div class="form-group">
+        <input type="text" class="form-control" id="location" name="location" placeholder="Location" value="{{ profile_form.location.value}}">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-start flex-row w-100">
+    <div class="p-2 pt-3 w-25">
+      <label for="birth_date">Birth date</label>
+    </div>
+    <div class="p-2 w-75">
+      <div class="form-group">
+        <input type="date" class="form-control" id="birth_date" name="birth_date" placeholder="Birth date" value="{{ profile_form.birth_date.value }}">
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-start flex-row w-100">
+    <div class="p-2 pt-3 w-25">
+      <label for="bio">Bio</label>
+    </div>
+    <div class="p-2 w-75">
+      <div class="form-group">
+        <textarea type="text" class="form-control" id="bio" name="bio" placeholder="Bio" rows="5"> {{ profile_form.bio.value }}</textarea>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-info w-50">Save changes</button>
+  </div>
+</form>
+
+{% endblock %}

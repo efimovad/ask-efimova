@@ -1,0 +1,75 @@
+{% load static %}
+<html>
+    <head>
+        <title>ask efimova</title>
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    </head>
+
+    <div class="page-header">
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu">
+            <i class="material-icons md-48">add</i>
+        </a>
+        <a href="{% url 'post_list' %}" class="top-menu">
+            <i class="material-icons md-48">edit</i>
+        </a>
+        <a href="{% url 'profile' %}" class="top-menu">
+            <i class="material-icons md-48">person</i>
+        </a>
+        <a href="{% url 'logout' %}" class="top-menu">
+            <i class="material-icons md-48">exit_to_app</i>
+        </a>
+        <p class="top-menu">Hello, {{ user.username }}!</p>
+        {% else %}
+        <a href="{% url 'register' %}" class="top-menu">
+            <i class="material-icons md-36">arrow_forward</i>
+        </a>
+        {% endif %}
+        <h1><a href="/">Ask Efimova</a></h1>
+    </div>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div class="col-md-4 blue">
+                {% if users %}
+                <h1>
+                    <span class="label label-info">
+                        <a href="">Best members</a>
+                    </span>
+                </h1>
+
+                {% for user in users %}
+                <h3><a href=""> {{ user.id }}.{{ user.username }}</a></h3>
+                {% endfor %}
+                {% endif %}
+
+                {% if tags%}
+                <h1>
+                    <span class="label label-info">
+                        <a href="">Popular Tags</a>
+                    </span>
+                </h1>
+
+                <h3>
+                    {% for tag in tags %}
+                    <span class="label label-warning"><a href="{% url 'posts_by_tag' pk=tag.pk %}">{{ tag.title }}</a></span>
+                    {% endfor %}
+                </h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</html>

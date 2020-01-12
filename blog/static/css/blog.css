@@ -1,0 +1,90 @@
+body {
+  padding: 2em;
+}
+
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 100px;
+}
+
+.rightbar{
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: darkslategrey;
+    font-family: 'Margarine', cursive;
+}
+
+a, button {
+    font-family: 'Margarine', cursive;
+}
+
+.date {
+    font-family: 'Margarine', cursive;
+    color: #828282;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.tag {
+    margin: 20px 0px 20px 20px;
+}
+
+.blue {
+  background-color: azure;
+}
+
+
+.tagbar {
+  border: 10px dotted black;
+  padding: 15px;
+  background: lightblue;
+  background-clip: padding-box;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.pagination {
+    font-size:11px;
+    clear:both;
+    position:relative;
+    font-family: 'Margarine', cursive;
+}
